@@ -28,9 +28,9 @@ jobs:
         context: . # Build context is the current directory (where Dockerfile is)
         push: true # Push the image to Docker Hub
         tags: |
-          ${{ secrets.DOCKER_USERNAME }}/my-flask-app:latest # Tag as 'latest'
-          ${{ secrets.DOCKER_USERNAME }}/my-flask-app:${{ github.sha }} # Tag with Git SHA for versioning
-        cache-from: type=gha # Use GitHub Actions cache for faster builds
+          ${{ secrets.DOCKER_USERNAME }}/my-flask-app:latest
+          ${{ secrets.DOCKER_USERNAME }}/my-flask-app:${{ github.sha }}
+        cache-from: type=gha
         cache-to: type=gha,mode=max
 
   deploy-to-ec2:
